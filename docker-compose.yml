@@ -1,12 +1,25 @@
 version: '3.4'
 
 services:
-  sveltekit-appwrite:
-    image: sveltekit-appwrite
+  sveltekit-1:
+    image: sveltekit1
     build:
       context: .
       dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
+   # environment:
+    # NODE_ENV: production
     ports:
       - 3000:3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sveltekit-1.entrypoints=web-secure"
+      - "traefik.http.routers.sveltekit-1.rule=Host(`cloud.b-logos.net`,`www.cloud.b-logos.net`)"
+      - "traefik.http.routers.sveltekit-1.tls.certresolver=lets-encr"
+      - "traefik.http.routers.sveltekit-1.middlewares=wwwtohttps@docker"  
+        #  expose:
+            #  - "3000"
+
+networks:
+  default:
+    external:
+      name: "frontend"
