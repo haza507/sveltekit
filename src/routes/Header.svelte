@@ -25,6 +25,15 @@
 			<li class:active={$page.url.pathname.startsWith('/sverdle')}>
 				<a href="/sverdle">Sverdle</a>
 			</li>
+			<li class:active={$page.url.pathname === '/dashboard'}>
+				<a href="/dashboard">Dashboard</a>
+			</li>
+			<li class:active={$page.url.pathname === '/calendar'}>
+				<a href="/calendar">Calendar</a>
+			</li>
+			<li class:active={$page.url.pathname === '/ejemplo_api'}>
+				<a href="/ejemplo_api">api</a>
+			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
