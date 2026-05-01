@@ -2,14 +2,16 @@
 	import '../../app.postcss';
 	import Header from './Header.svelte';
 	import './styles.css';
+
+	let { children } = $props()
 </script>
 
 <div class="app">
 	<Header />
-	
-<link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.2/dist/flowbite.min.css" />
+
+	<link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.2/dist/flowbite.min.css" />
 	<main>
-		<slot />
+		{@render children()}
 	</main>
 
 	<footer>
